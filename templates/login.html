@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - NutriHealth AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">NutriHealth AI</div>
+        <nav>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/diet-chart">Analytics</a>
+            <a href="/login" class="active">Login</a>
+        </nav>
+    </header>
+    <main class="dashboard-main">
+        <section class="dashboard-section">
+            <h2>Login</h2>
+            <form method="POST" action="/login">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Login</button>
+            </form>
+            <div style="margin-top: 12px; text-align: center;">
+                <a href="/register">Create Account</a>
+            </div>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                <ul class="flashes">
+                  {% for category, message in messages %}
+                    <li class="flash-{{ category }}">{{ message }}</li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            {% endwith %}
+        </section>
+    </main>
+    <footer>
+        <div>© 2025 NutriHealth AI | Designed by SHAIK SAZAD AKTHAR</div>
+    </footer>
+</body>
+</html>

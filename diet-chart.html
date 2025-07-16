@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriHealth AI - Analytics</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">NutriHealth AI</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="diet-chart.html" class="active">Diet Charts</a>
+        </nav>
+    </header>
+    <div class="main-layout">
+        <aside>
+            <ul>
+                <li><a href="index.html#upload">Upload Report</a></li>
+                <li><a href="index.html#plansSection">Previous Plans</a></li>
+                <li><a href="#analytics">Analytics</a></li>
+            </ul>
+        </aside>
+        <main>
+            <section id="analytics">
+                <h1>Health Parameter Trends</h1>
+                <div id="loginPrompt" style="display:none;">
+                    <p>Please <a href="index.html#login">log in</a> to view your analytics.</p>
+                </div>
+                <div id="chartsSection" style="display:none;">
+                    <canvas id="trendChart" width="800" height="400"></canvas>
+                </div>
+            </section>
+        </main>
+    </div>
+    <footer>
+        <div>© 2025 NutriHealth AI | Designed by SHAIK</div>
+    </footer>
+    <script src="diet-chart.js"></script>
+</body>
+</html> 

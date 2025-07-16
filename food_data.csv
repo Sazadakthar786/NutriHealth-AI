@@ -1,0 +1,43 @@
+food,calories,protein,iron,carbs,suitable_for
+Oatmeal,150,5,1.7,27,all
+Boiled Egg,78,6,1.2,1,"anemia,all"
+Apple,95,0.5,0.1,25,all
+Toast (whole wheat),70,3,0.7,12,"diabetes,all"
+Spinach,23,2.9,2.7,3.6,"anemia,all"
+Beetroot,43,1.6,0.8,10,"anemia,all"
+Brown Rice,216,5,0.4,45,all
+Grilled Chicken,165,31,1,0,all
+Salad,50,2,0.5,10,all
+Nuts,180,6,1.1,6,"triglycerides,all"
+Banana,105,1.3,0.3,27,all
+Chapati,70,2.5,0.7,15,all
+Lentil Soup,120,9,3.3,20,"anemia,all"
+Steamed Veggies,60,2,1,12,all
+Quinoa,120,4,1.5,21,"cholesterol,all"
+Cucumber Slices,8,0.3,0.2,2,"triglycerides,all"
+Dates,20,0.2,0.3,5,anemia
+Broccoli,55,3.7,0.7,11,all
+Carrot,41,0.9,0.3,10,all
+Sweet Potato,86,1.6,0.7,20,"diabetes,all"
+Greek Yogurt,59,10,0.1,3.6,all
+Cottage Cheese,98,11,0.2,3.4,all
+Almonds,164,6,1.1,6,"triglycerides,all"
+Walnuts,185,4.3,0.8,4,"triglycerides,all"
+Orange,62,1.2,0.1,15,all
+Pear,101,0.6,0.2,27,all
+Mango,99,1.4,0.2,25,all
+Pomegranate,83,1.7,0.3,19,"anemia,all"
+Pumpkin Seeds,151,7,2.7,5,"anemia,all"
+Sunflower Seeds,165,5.5,1.5,7,all
+Fish (Salmon),208,20,0.5,0,"cholesterol,all"
+Tofu,76,8,2.7,2,all
+Paneer,265,18,0.2,6,all
+Mushrooms,22,3.1,1.7,3,all
+Avocado,160,2,0.6,9,"cholesterol,all"
+Barley,354,12,3.6,73,"diabetes,all"
+Millet,119,3.5,1.1,23,"diabetes,all"
+Eggplant,25,1,0.2,6,all
+Green Peas,81,5,1.5,14,all
+Kidney Beans,127,9,2.9,22,"anemia,all"
+Chickpeas,164,9,2.9,27,"anemia,all"
+Lentils,116,9,3.3,20,"anemia,all" 

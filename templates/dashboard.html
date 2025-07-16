@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - NutriHealth AI</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="main-layout">
+        <aside class="sidebar">
+            <div class="logo">NutriHealth AI</div>
+            <ul>
+                <li><a href="/dashboard" class="active">Dashboard</a></li>
+                <li><a href="#upload">Upload</a></li>
+                <li><a href="#activity">Activity Log</a></li>
+                <li><a href="#diet">Diet Chart</a></li>
+                <li><a href="#milestones">Milestones</a></li>
+                <li><a href="#wellness">Wellness</a></li>
+                <li><a href="#profile">Profile</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </aside>
+        <main>
+            <section class="dashboard-section" id="dashboard-section">
+                <div class="dashboard-hero">
+                    <div class="hero-text">
+                        <h1>Welcome, {{ user.username }}!</h1>
+                        <p>Your personalized health dashboard</p>
+                    </div>
+                </div>
+                <h2>Your Medical Reports</h2>
+                {% if reports and reports|length > 0 %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Report</th>
+                            <th>Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for report in reports %}
+                        <tr>
+                            <td>{{ report.filename }}</td>
+                            <td>{{ report.timestamp.strftime('%Y-%m-%d') }}</td>
+                            <td>
+                                <button type="button" onclick="toggleDetails('details-{{ report.id }}')">Details</button>
+                            </td>
+                        </tr>
+                        <tr id="details-{{ report.id }}" style="display:none; background:#f9f9f9;">
+                            <td colspan="3">
+                                <strong>Extracted Values:</strong>
+                                <ul>
+                                {% for k, v in report.values_dict.items() %}
+                                    <li>{{ k|capitalize }}: {{ v }}</li>
+                                {% endfor %}
+                                </ul>
+                                <strong>Conditions:</strong>
+                                <ul>
+                                {% for c in report.conds_list %}
+                                    <li>{{ c }}</li>
+                                {% endfor %}
+                                </ul>
+                                {% if report.doctor_comment %}
+                                <div style="margin-top:10px;"><strong>Doctor's Comment:</strong> {{ report.doctor_comment }}</div>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <script>
+                function toggleDetails(id) {
+                    var row = document.getElementById(id);
+                    if (row.style.display === 'none') {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                }
+                </script>
+                {% else %}
+                <p>No reports uploaded yet.</p>
+                {% endif %}
+                {% if comparison and comparison|length > 0 %}
+                <h3>Report Comparison (Latest vs Previous)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Previous</th>
+                            <th>Latest</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for key, comp in comparison.items() %}
+                        <tr>
+                            <td>{{ key|capitalize }}</td>
+                            <td>{{ comp.previous }}</td>
+                            <td>{{ comp.latest }}</td>
+                            <td>
+                                {% if comp.status == 'improved' %}<span style="color:green;">Improved</span>{% endif %}
+                                {% if comp.status == 'worse' %}<span style="color:red;">Worse</span>{% endif %}
+                                {% if comp.status == 'no_change' %}<span style="color:gray;">No Change</span>{% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% endif %}
+                <h3>Health Trends</h3>
+                <canvas id="trendChart" width="600" height="300"></canvas>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                <script>
+                const trendLabels = {{ trend_labels|tojson }};
+                const trendData = {{ trend_data|tojson }};
+                const ctx = document.getElementById('trendChart').getContext('2d');
+                const chart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: trendLabels,
+                        datasets: [
+                            {
+                                label: 'Hemoglobin',
+                                data: trendData.hemoglobin,
+                                borderColor: '#e76f51',
+                                fill: false
+                            },
+                            {
+                                label: 'Sugar',
+                                data: trendData.sugar,
+                                borderColor: '#40916c',
+                                fill: false
+                            },
+                            {
+                                label: 'Cholesterol',
+                                data: trendData.cholesterol,
+                                borderColor: '#577590',
+                                fill: false
+                            },
+                            {
+                                label: 'Glucose',
+                                data: trendData.glucose,
+                                borderColor: '#f4a261',
+                                fill: false
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: { position: 'top' },
+                            title: { display: true, text: 'Health Parameter Trends' }
+                        }
+                    }
+                });
+                </script>
+            </section>
+            <section class="dashboard-section" id="upload-section" style="display:none;">
+                <h2>Upload Medical Report</h2>
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                  {% if messages %}
+                    <ul class="flashes">
+                      {% for category, message in messages %}
+                        <li class="flash-{{ category }}">{{ message }}</li>
+                      {% endfor %}
+                    </ul>
+                  {% endif %}
+                {% endwith %}
+                <form method="POST" action="/upload" enctype="multipart/form-data">
+                    <input type="file" name="report_file" accept=".pdf,.jpg,.jpeg,.png" required>
+                    <label for="ocr_language">Report Language:</label>
+                    <select name="ocr_language" id="ocr_language" required>
+                        <option value="eng">English</option>
+                        <option value="hin">Hindi</option>
+                        <option value="tel">Telugu</option>
+                    </select>
+                    <label><input type="checkbox" name="shared_with_doctor"> Share with Doctor</label>
+                    <button type="submit">Upload</button>
+                </form>
+            </section>
+            <section class="dashboard-section" id="activity-section" style="display:none;">
+                <h2>Activity Log</h2>
+                <form method="POST" action="/activity-log">
+                    <label for="steps">Steps:</label>
+                    <input type="number" id="steps" name="steps" min="0" required>
+                    <label for="exercise">Exercise (type):</label>
+                    <input type="text" id="exercise" name="exercise" maxlength="100" required>
+                    <label for="calories">Calories Burned:</label>
+                    <input type="number" id="calories" name="calories" min="0" required>
+                    <button type="submit">Add Activity</button>
+                </form>
+                {% if activity_logs and activity_logs|length > 0 %}
+                <h3>Your Activity History</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Steps</th>
+                            <th>Exercise</th>
+                            <th>Calories</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for log in activity_logs %}
+                        <tr>
+                            <td>{{ log.date.strftime('%Y-%m-%d') }}</td>
+                            <td>{{ log.steps }}</td>
+                            <td>{{ log.exercise }}</td>
+                            <td>{{ log.calories }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <p>No activity logs yet.</p>
+                {% endif %}
+            </section>
+            <section class="dashboard-section" id="diet-section" style="display:none;">
+                <h2>Diet Chart</h2>
+                {% if diet_chart and diet_chart|length > 0 %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Meal</th>
+                            <th>Items</th>
+                            <th>Calories</th>
+                            <th>Reason</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in diet_chart %}
+                        <tr>
+                            <td>{{ row['meal'] }}</td>
+                            <td>{{ row['items'] }}</td>
+                            <td>{{ row['calories'] }}</td>
+                            <td>{{ row['reason'] }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <p>No diet chart available.</p>
+                {% endif %}
+            </section>
+            <section class="dashboard-section" id="milestones-section" style="display:none;">
+                <h2>Milestones</h2>
+                {% if milestones and milestones|length > 0 %}
+                <div class="milestones-list" style="display: flex; flex-wrap: wrap; gap: 18px;">
+                    {% for m in milestones %}
+                    <div class="milestone-card" style="background: #fff7e6; border-radius: 14px; box-shadow: 0 2px 8px rgba(255,193,7,0.08); padding: 18px 22px; min-width: 220px; display: flex; flex-direction: column; align-items: center;">
+                        <div style="font-size: 2.2rem; margin-bottom: 8px;">{{ m.icon }}</div>
+                        <div style="font-weight: bold; font-size: 1.15rem; margin-bottom: 4px;">{{ m.name }}</div>
+                        <div style="font-size: 0.98rem; color: #b26a00; margin-bottom: 8px; text-align: center;">{{ m.desc }}</div>
+                        {% if m.unlocked %}
+                        <span style="background: #ffe082; color: #795548; font-weight: 600; border-radius: 8px; padding: 4px 14px; font-size: 0.98rem;">Unlocked!</span>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <p>No milestones achieved yet.</p>
+                {% endif %}
+            </section>
+            <section class="dashboard-section" id="wellness-section" style="display:none;">
+                <h2>Wellness</h2>
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 18px;">
+                    <div class="wellness-score" style="font-size: 2.5rem; font-weight: bold; color: #40916c;">Wellness Score: {{ wellness_score }}/100</div>
+                    <div class="wellness-tips" style="background: #e0f7fa; color: #00796b; font-size: 1.15rem; padding: 16px 24px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,150,136,0.08); max-width: 480px; text-align: center;">
+                        <span style="font-size: 1.5rem; margin-right: 8px;">💡</span>{{ wellness_tip }}
+                    </div>
+                </div>
+            </section>
+            <section class="dashboard-section" id="profile-section" style="display:none;">
+                <h2>Profile</h2>
+                <form method="POST" action="/update-goal">
+                    <label for="goal">Health Goal:</label>
+                    <select name="goal" id="goal">
+                        <option value="weight_loss" {% if user.goal == 'weight_loss' %}selected{% endif %}>Weight Loss</option>
+                        <option value="muscle_gain" {% if user.goal == 'muscle_gain' %}selected{% endif %}>Muscle Gain</option>
+                        <option value="diabetes_control" {% if user.goal == 'diabetes_control' %}selected{% endif %}>Diabetes Control</option>
+                    </select>
+                    <button type="submit">Update Goal</button>
+                </form>
+            </section>
+        </main>
+    </div>
+    <footer>
+        <div>&copy; 2025 NutriHealth AI | Designed by SHAIK SAZAD AKTHAR</div>
+    </footer>
+    <script>
+    // Sidebar section switching
+    const sectionMap = {
+        '/dashboard': 'dashboard-section',
+        '#upload': 'upload-section',
+        '#activity': 'activity-section',
+        '#diet': 'diet-section',
+        '#milestones': 'milestones-section',
+        '#wellness': 'wellness-section',
+        '#profile': 'profile-section'
+    };
+    const sidebarLinks = document.querySelectorAll('.sidebar ul li a');
+    const sections = [
+        'dashboard-section', 'upload-section', 'activity-section',
+        'diet-section', 'milestones-section', 'wellness-section', 'profile-section'
+    ];
+    sidebarLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            if (this.getAttribute('href').startsWith('#')) {
+                e.preventDefault();
+                // Hide all sections
+                sections.forEach(id => {
+                    document.getElementById(id).style.display = 'none';
+                });
+                // Remove active from all links
+                sidebarLinks.forEach(l => l.classList.remove('active'));
+                // Show selected section
+                const sectionId = sectionMap[this.getAttribute('href')];
+                if (sectionId) {
+                    document.getElementById(sectionId).style.display = '';
+                }
+                // Set active link
+                this.classList.add('active');
+            }
+        });
+    });
+    // Show dashboard by default
+    document.getElementById('dashboard-section').style.display = '';
+    </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriHealth AI - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;500;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">NutriHealth AI</div>
+        <nav>
+            <a href="index.html" class="active">Dashboard</a>
+            <a href="diet-chart.html">Analytics</a>
+            <a href="login.html" id="loginNav">Login</a>
+        </nav>
+    </header>
+    <div class="main-layout">
+        <aside class="sidebar">
+            <ul>
+                <li><a href="#" data-section="milestonesSection">Milestones</a></li>
+                <li><a href="#" data-section="wellnessSection">Wellness</a></li>
+                <li><a href="#" data-section="uploadSection">Upload Report</a></li>
+                <li><a href="#" data-section="activityLogSection">Log Activity</a></li>
+                <li><a href="#" data-section="dietChartSection">Diet Chart</a></li>
+            </ul>
+        </aside>
+        <main>
+            <section id="milestonesSection" class="dashboard-section">
+                <h2>Milestones</h2>
+                <div id="milestonesList" class="milestones-list"></div>
+            </section>
+            <section id="wellnessSection" class="dashboard-section">
+                <h2>Wellness</h2>
+                <div id="wellnessScore" class="wellness-score"></div>
+                <div id="wellnessTips" class="wellness-tips"></div>
+            </section>
+            <section id="uploadSection" class="dashboard-section">
+                <h2>Upload Medical Report</h2>
+                <form id="uploadForm">
+                    <label for="fileInput">Upload Medical Report (PDF or Image):</label>
+                    <input type="file" id="fileInput" name="file" accept=".pdf,image/*" required>
+                    <label for="ocrEngine">OCR Engine:</label>
+                    <select id="ocrEngine" name="ocrEngine">
+                        <option value="pytesseract">Tesseract (default)</option>
+                        <option value="easyocr">EasyOCR</option>
+                        <option value="pdfplumber">PDFPlumber</option>
+                    </select>
+                    <button type="submit">Upload & Analyze</button>
+                </form>
+            </section>
+            <section id="activityLogSection" class="dashboard-section">
+                <h2>Log Activity</h2>
+                <form id="activityForm">
+                    <label for="stepsInput">Steps:</label>
+                    <input type="number" id="stepsInput" name="steps" min="0" placeholder="e.g. 8000">
+                    <label for="caloriesInput">Calories Burned:</label>
+                    <input type="number" id="caloriesInput" name="calories" min="0" placeholder="e.g. 350">
+                    <label for="exerciseInput">Exercise Type:</label>
+                    <input type="text" id="exerciseInput" name="exercise" placeholder="e.g. Running">
+                    <button type="submit">Log Activity</button>
+                </form>
+                <div id="activitySummary"></div>
+            </section>
+            <section id="dietChartSection" class="dashboard-section">
+                <h2>Personalized Diet Chart</h2>
+                <table id="dietTable">
+                    <thead>
+                        <tr>
+                            <th>Meal</th>
+                            <th>Time</th>
+                            <th>Food Items</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+    <footer>
+        <div>© 2025 NutriHealth AI | Designed by SHAIK</div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html> 

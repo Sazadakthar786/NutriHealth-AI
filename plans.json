@@ -1,0 +1,362 @@
+[
+  {
+    "filename": "patient report for diabetics.jpg",
+    "timestamp": "2025-07-16T10:05:27.355140",
+    "values": {
+      "glucose": 117.0
+    },
+    "conditions": [],
+    "diet_chart": [
+      {
+        "meal": "Breakfast",
+        "time": "8:00 AM",
+        "items": [
+          "Boiled Egg",
+          "Oatmeal",
+          "Orange"
+        ]
+      },
+      {
+        "meal": "Lunch",
+        "time": "1:00 PM",
+        "items": [
+          "Walnuts",
+          "Greek Yogurt",
+          "Toast (whole wheat)"
+        ]
+      },
+      {
+        "meal": "Snack",
+        "time": "4:00 PM",
+        "items": [
+          "Millet",
+          "Pomegranate"
+        ]
+      },
+      {
+        "meal": "Dinner",
+        "time": "8:00 PM",
+        "items": [
+          "Avocado",
+          "Cottage Cheese",
+          "Green Peas"
+        ]
+      }
+    ]
+  },
+  {
+    "filename": "patient report for diabetics.jpg",
+    "timestamp": "2025-07-16T10:05:29.731875",
+    "values": {
+      "glucose": 117.0
+    },
+    "conditions": [],
+    "diet_chart": [
+      {
+        "meal": "Breakfast",
+        "time": "8:00 AM",
+        "items": [
+          "Lentils",
+          "Cottage Cheese",
+          "Cucumber Slices"
+        ]
+      },
+      {
+        "meal": "Lunch",
+        "time": "1:00 PM",
+        "items": [
+          "Nuts",
+          "Banana",
+          "Brown Rice"
+        ]
+      },
+      {
+        "meal": "Snack",
+        "time": "4:00 PM",
+        "items": [
+          "Barley",
+          "Beetroot"
+        ]
+      },
+      {
+        "meal": "Dinner",
+        "time": "8:00 PM",
+        "items": [
+          "Nuts",
+          "Walnuts",
+          "Fish (Salmon)"
+        ]
+      }
+    ]
+  },
+  {
+    "filename": "patient report for diabetics.jpg",
+    "timestamp": "2025-07-16T10:09:29.163045",
+    "values": {
+      "glucose": 117.0
+    },
+    "conditions": [],
+    "diet_chart": [
+      {
+        "meal": "Breakfast",
+        "time": "8:00 AM",
+        "items": [
+          "Paneer",
+          "Almonds",
+          "Kidney Beans"
+        ]
+      },
+      {
+        "meal": "Lunch",
+        "time": "1:00 PM",
+        "items": [
+          "Toast (whole wheat)",
+          "Quinoa",
+          "Cottage Cheese"
+        ]
+      },
+      {
+        "meal": "Snack",
+        "time": "4:00 PM",
+        "items": [
+          "Cottage Cheese",
+          "Steamed Veggies"
+        ]
+      },
+      {
+        "meal": "Dinner",
+        "time": "8:00 PM",
+        "items": [
+          "Apple",
+          "Apple",
+          "Lentil Soup"
+        ]
+      }
+    ]
+  },
+  {
+    "filename": "patient report for diabetics.jpg",
+    "timestamp": "2025-07-16T12:26:24.344590",
+    "values": {
+      "glucose": 117.0
+    },
+    "conditions": [],
+    "diet_chart": [
+      {
+        "meal": "Breakfast",
+        "time": "8:00 AM",
+        "items": [
+          "Quinoa",
+          "Pomegranate",
+          "Apple"
+        ]
+      },
+      {
+        "meal": "Lunch",
+        "time": "1:00 PM",
+        "items": [
+          "Boiled Egg",
+          "Apple",
+          "Salad"
+        ]
+      },
+      {
+        "meal": "Snack",
+        "time": "4:00 PM",
+        "items": [
+          "Pear",
+          "Barley"
+        ]
+      },
+      {
+        "meal": "Dinner",
+        "time": "8:00 PM",
+        "items": [
+          "Brown Rice",
+          "Nuts",
+          "Millet"
+        ]
+      }
+    ]
+  },
+  {
+    "filename": "patient report for diabetics.jpg",
+    "timestamp": "2025-07-16T12:27:28.758080",
+    "values": {
+      "glucose": 117.0
+    },
+    "conditions": [],
+    "diet_chart": [
+      {
+        "meal": "Breakfast",
+        "time": "8:00 AM",
+        "items": [
+          "Pear",
+          "Salad",
+          "Salad"
+        ]
+      },
+      {
+        "meal": "Lunch",
+        "time": "1:00 PM",
+        "items": [
+          "Barley",
+          "Grilled Chicken",
+          "Almonds"
+        ]
+      },
+      {
+        "meal": "Snack",
+        "time": "4:00 PM",
+        "items": [
+          "Nuts",
+          "Mango"
+        ]
+      },
+      {
+        "meal": "Dinner",
+        "time": "8:00 PM",
+        "items": [
+          "Grilled Chicken",
+          "Nuts",
+          "Mushrooms"
+        ]
+      }
+    ]
+  },
+  {
+    "filename": "patient report for diabetics.jpg",
+    "timestamp": "2025-07-16T12:29:05.815647",
+    "values": {
+      "glucose": 117.0
+    },
+    "conditions": [],
+    "diet_chart": [
+      {
+        "meal": "Breakfast",
+        "time": "8:00 AM",
+        "items": [
+          "Almonds",
+          "Cucumber Slices",
+          "Salad"
+        ]
+      },
+      {
+        "meal": "Lunch",
+        "time": "1:00 PM",
+        "items": [
+          "Toast (whole wheat)",
+          "Oatmeal",
+          "Paneer"
+        ]
+      },
+      {
+        "meal": "Snack",
+        "time": "4:00 PM",
+        "items": [
+          "Pomegranate",
+          "Greek Yogurt"
+        ]
+      },
+      {
+        "meal": "Dinner",
+        "time": "8:00 PM",
+        "items": [
+          "Carrot",
+          "Cottage Cheese",
+          "Tofu"
+        ]
+      }
+    ]
+  },
+  {
+    "filename": "patient report for diabetics.jpg",
+    "timestamp": "2025-07-16T12:29:07.410415",
+    "values": {
+      "glucose": 117.0
+    },
+    "conditions": [],
+    "diet_chart": [
+      {
+        "meal": "Breakfast",
+        "time": "8:00 AM",
+        "items": [
+          "Eggplant",
+          "Tofu",
+          "Avocado"
+        ]
+      },
+      {
+        "meal": "Lunch",
+        "time": "1:00 PM",
+        "items": [
+          "Mushrooms",
+          "Carrot",
+          "Avocado"
+        ]
+      },
+      {
+        "meal": "Snack",
+        "time": "4:00 PM",
+        "items": [
+          "Beetroot",
+          "Spinach"
+        ]
+      },
+      {
+        "meal": "Dinner",
+        "time": "8:00 PM",
+        "items": [
+          "Pumpkin Seeds",
+          "Pear",
+          "Oatmeal"
+        ]
+      }
+    ]
+  },
+  {
+    "filename": "patient report for diabetics.jpg",
+    "timestamp": "2025-07-16T12:35:39.445681",
+    "values": {
+      "glucose": 117.0
+    },
+    "conditions": [],
+    "diet_chart": [
+      {
+        "meal": "Breakfast",
+        "time": "8:00 AM",
+        "items": [
+          "Banana",
+          "Walnuts",
+          "Lentil Soup"
+        ]
+      },
+      {
+        "meal": "Lunch",
+        "time": "1:00 PM",
+        "items": [
+          "Nuts",
+          "Beetroot",
+          "Kidney Beans"
+        ]
+      },
+      {
+        "meal": "Snack",
+        "time": "4:00 PM",
+        "items": [
+          "Sunflower Seeds",
+          "Boiled Egg"
+        ]
+      },
+      {
+        "meal": "Dinner",
+        "time": "8:00 PM",
+        "items": [
+          "Apple",
+          "Salad",
+          "Avocado"
+        ]
+      }
+    ]
+  }
+]

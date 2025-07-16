@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Doctor Dashboard - NutriHealth AI</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">NutriHealth AI - Doctor Portal</div>
+        <nav>
+            <a href="/doctor" class="active">Dashboard</a>
+            <a href="/logout">Logout</a>
+        </nav>
+    </header>
+    <main class="dashboard-main">
+        <h2>Patient Reports</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Patient</th>
+                    <th>Report</th>
+                    <th>Date</th>
+                    <th>Extracted Values</th>
+                    <th>Conditions</th>
+                    <th>Comments</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for report in reports %}
+                <tr>
+                    <td>{{ users[report.user_id].username }}</td>
+                    <td>{{ report.filename }}</td>
+                    <td>{{ report.timestamp.strftime('%Y-%m-%d') }}</td>
+                    <td>
+                        <ul>
+                        {% for k, v in report.values_dict.items() %}
+                            <li>{{ k|capitalize }}: {{ v }}</li>
+                        {% endfor %}
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                        {% for c in report.conds_list %}
+                            <li>{{ c }}</li>
+                        {% endfor %}
+                        </ul>
+                    </td>
+                    <td>
+                        {% if report.doctor_comment %}
+                            <div><strong>Comment:</strong> {{ report.doctor_comment }}</div>
+                        {% else %}
+                            <form method="POST" action="/doctor/comment/{{ report.id }}">
+                                <textarea name="doctor_comment" rows="2" cols="24" placeholder="Add comment..."></textarea>
+                                <button type="submit">Submit</button>
+                            </form>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+    <footer>
+        <div>&copy; 2025 NutriHealth AI | Designed by SHAIK SAZAD AKTHAR</div>
+    </footer>
+</body>
+</html> 

@@ -1,0 +1,53 @@
+Test Name,Category,Normal Range,Unit
+Hemoglobin (Hb),Complete Blood Count,"13.5–17.5 g/dL (M), 12.0–15.5 g/dL (F)",g/dL
+RBC Count,Complete Blood Count,"4.7–6.1 million/μL (M), 4.2–5.4 million/μL (F)",million/μL
+WBC Count,Complete Blood Count,"4,500–11,000 cells/μL",cells/μL
+Platelet Count,Complete Blood Count,"150,000–450,000 /μL",/μL
+Hematocrit (HCT),Complete Blood Count,"41–53% (M), 36–46% (F)",%
+MCV,Complete Blood Count,80–100 fL,fL
+MCH,Complete Blood Count,27–33 pg,pg
+MCHC,Complete Blood Count,33.4–35.5 g/dL,g/dL
+RDW,Complete Blood Count,11.5–14.5%,%
+Neutrophils (%),Complete Blood Count,40–60%,%
+Lymphocytes (%),Complete Blood Count,20–40%,%
+Monocytes (%),Complete Blood Count,2–8%,%
+Eosinophils (%),Complete Blood Count,1–4%,%
+Basophils (%),Complete Blood Count,0.5–1%,%
+SGOT / AST,Liver Function Test,5–40 U/L,U/L
+SGPT / ALT,Liver Function Test,7–56 U/L,U/L
+ALP,Liver Function Test,40–129 U/L,U/L
+Total Bilirubin,Liver Function Test,0.1–1.2 mg/dL,mg/dL
+Direct Bilirubin,Liver Function Test,0.0–0.3 mg/dL,mg/dL
+Albumin,Liver Function Test,3.4–5.4 g/dL,g/dL
+Globulin,Liver Function Test,2.0–3.5 g/dL,g/dL
+A/G Ratio,Liver Function Test,1.0–2.1,Ratio
+Creatinine,Kidney Function Test,0.6–1.3 mg/dL,mg/dL
+Urea / BUN,Kidney Function Test,7–20 mg/dL,mg/dL
+Uric Acid,Kidney Function Test,3.5–7.2 mg/dL,mg/dL
+Sodium (Na+),Kidney Function Test,135–145 mEq/L,mEq/L
+Potassium (K+),Kidney Function Test,3.5–5.0 mEq/L,mEq/L
+Chloride (Cl-),Kidney Function Test,98–106 mEq/L,mEq/L
+Fasting Blood Sugar (FBS),Diabetes,70–100 mg/dL,mg/dL
+Postprandial Blood Sugar (PPBS),Diabetes,Less than 140 mg/dL,mg/dL
+HbA1c,Diabetes,4.0–5.6%,%
+Random Blood Sugar (RBS),Diabetes,70–140 mg/dL,mg/dL
+Insulin (Fasting),Diabetes,2.6–24.9 µIU/mL,µIU/mL
+Total Cholesterol,Lipid Profile,Less than 200 mg/dL,mg/dL
+HDL,Lipid Profile,40–60 mg/dL,mg/dL
+LDL,Lipid Profile,Less than 100 mg/dL,mg/dL
+VLDL,Lipid Profile,5–40 mg/dL,mg/dL
+Triglycerides,Lipid Profile,Less than 150 mg/dL,mg/dL
+Cholesterol/HDL Ratio,Lipid Profile,Less than 5,Ratio
+Vitamin D (25-OH),Vitamins & Minerals,20–50 ng/mL,ng/mL
+Vitamin B12,Vitamins & Minerals,190–950 pg/mL,pg/mL
+Calcium,Vitamins & Minerals,8.5–10.2 mg/dL,mg/dL
+Iron,Vitamins & Minerals,60–170 µg/dL,µg/dL
+Ferritin,Vitamins & Minerals,"20–500 ng/mL (M), 20–200 ng/mL (F)",ng/mL
+TIBC,Vitamins & Minerals,240–450 µg/dL,µg/dL
+Magnesium,Vitamins & Minerals,1.7–2.2 mg/dL,mg/dL
+Phosphorus,Vitamins & Minerals,2.5–4.5 mg/dL,mg/dL
+TSH,Thyroid Profile,0.4–4.0 mIU/L,mIU/L
+T3,Thyroid Profile,80–200 ng/dL,ng/dL
+T4,Thyroid Profile,5.0–12.0 µg/dL,µg/dL
+Free T3,Thyroid Profile,2.3–4.2 pg/mL,pg/mL
+Free T4,Thyroid Profile,0.8–1.8 ng/dL,ng/dL
